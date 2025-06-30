@@ -17,7 +17,7 @@ LU Decomposition
 
 Jacobi Method
 
-Gauss-Seidel Method
+Gauss-Seidel Method 
 
 Thomas Algorithm
 
