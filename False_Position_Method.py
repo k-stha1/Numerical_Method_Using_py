@@ -23,13 +23,14 @@ x_dummy = 0
 x0 = float((a*u.subs(x,b)-b*u.subs(x,a))/(u.subs(x,b)-u.subs(x,a)))
 fx = float((u.subs(x,x0)))
 i=0
-if fx ==0:
+if fx == 0:
     print("The root is: ",x0)
 else:
     print("\nn   |    a     |    b     |   f(a)    |   f(b)    |    xn    |   f(xn)")
     print("-----|----------|----------|-----------|-----------|----------|-----------")
+    print(f"{i:<4} | {a:<8.{m}f} | {b:<8.{m}f} | {u.subs(x,a):<9.{m}f} | {u.subs(x,b):<9.{m}f} | {x0:<8.{m}f} | {fx:<9.{m}f}")
     while  abs(x_dummy-x0)>ε:
-        print(f"{i:<4} | {a:<8.{m}f} | {b:<8.{m}f} | {u.subs(x,a):<9.{m}f} | {u.subs(x,b):<9.{m}f} | {x0:<8.{m}f} | {fx:<9.{m}f}")
+        
         fx = float(u.subs(x,x0))
         if (u.subs(x,a)<0 and fx<0):
             a=x0
@@ -38,6 +39,7 @@ else:
         x_dummy = x0
         x0 = float((a*u.subs(x,b)-b*u.subs(x,a))/(u.subs(x,b)-u.subs(x,a)))
         i +=1
+        print(f"{i:<4} | {a:<8.{m}f} | {b:<8.{m}f} | {u.subs(x,a):<9.{m}f} | {u.subs(x,b):<9.{m}f} | {x0:<8.{m}f} | {fx:<9.{m}f}")
             
 print("\n-----------------------------")
 print(f"Here, \n | {x_dummy:.{m}f} - {x0:.{m}f} | <= {ε:.{m}f}")
