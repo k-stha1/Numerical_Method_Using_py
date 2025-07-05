@@ -17,7 +17,10 @@ n = int(input("Enter the correct decimal place n: "))
 decimal_part = str(ε).split('.')[-1]
 m = len(decimal_part)
 
+#Derivative of given polynomial
 u_deri = sp.diff(u,x)
+
+#Calculating the values
 xi1 = a - ((u.subs(x,a))/ u_deri.subs(x,a))
 fxi1 = u.subs(x,xi1)
 
@@ -31,7 +34,6 @@ print("-----|-------------|----------------|----------------")
 print(f"{i:<4} | {a:<10.{m}f} | {xi1:<14.{m}f} | {fxi1:<14.{m}f}")
 
 
-
 while abs(a - xi1)> ε:
     a = xi1
     xi1 = a - ((u.subs(x,a))/ u_deri.subs(x,a))
@@ -39,6 +41,7 @@ while abs(a - xi1)> ε:
     i +=1
     print(f"{i:<4} | {a:<10.{m}f} | {xi1:<14.{m}f} | {fxi1:<14.{m}f}")
     
+
 
 
 print("\n-----------------------------")
