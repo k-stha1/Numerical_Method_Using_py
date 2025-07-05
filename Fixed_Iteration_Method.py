@@ -2,7 +2,6 @@ import sympy as sp
 
 #Declaring symbols
 x,ε,a,b,n,f = sp.symbols("x ε a b n f")
-fx = sp.symbols("fx")
 
 #Input Polynomial
 u_input=input("\nEnter the function in the fixed-point form: x = g(x) ")
@@ -31,14 +30,14 @@ print("\nn   |    a     |   x(i+1)=Φ    |")
 print("-----|----------|----------|")
 i = 0
 Φ = u.subs(x,a)
+print(f"{i:<4} | {a:<8.{m}f} | {Φ:<8.{m}f}")
 
 if abs(Φ_deri)<1:
     while abs(a-Φ)>ε:
-        print(f"{i:<4} | {a:<8.{m}f} | {Φ:<8.{m}f}")
         a = Φ
         Φ = u.subs(x,a)
         i=i+1
-
+        print(f"{i:<4} | {a:<8.{m}f} | {Φ:<8.{m}f}")
 
 print("\n-----------------------------")
 print(f"Here, \n | {a:.{m}f} - {Φ:.{m}f} | <= {ε:.{m}f}")
