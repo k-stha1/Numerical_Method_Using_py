@@ -1,7 +1,7 @@
 import sympy as sp
 
 #Declaring symbols
-x,ε,a,b,n,f = sp.symbols("x ε a b n f")
+x, ε, a, n = sp.symbols("x ε a n")
 
 #Input Polynomial
 u_input=input("\nEnter the function in the fixed-point form: x = g(x) ")
@@ -21,9 +21,9 @@ u_deri = sp.diff(u,x)
 Φ_deri = u_deri.subs(x,a)
 
 if abs(Φ_deri)<1:
-    print ("Hence, the polynomial converges.")
+    print (f"Since, {Φ_deri<1}. Tthe polynomial converges.")
 else:
-    print ("The polynomial doesnot converge.")
+    print (f"Since, {Φ_deri>1}.The polynomial doesnot converge.")
 
 
 print("\nn   |    a     |   x(i+1)=Φ    |")
